@@ -1,13 +1,12 @@
-
 {% extends 'main/base.html' %}
 
-{% block title %} Sign up {% endblock %}
+{% block title %} Log in {% endblock %}
 
 {% block content %}
 
 
 <div class="signup-container">
-  <h2>Sign up</h2>
+  <h2>Enter your Login details:</h2>
   <form class="signup-form" method="post">
     {% csrf_token %}
     {% for field in form %}
