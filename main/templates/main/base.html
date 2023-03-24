@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title> {% block title %}{% endblock %} | Ntubu </title>
+</head>
+
+<body>
+    <nav class="p-6 flex items-center justify-between bg-gray-800">
+        <a href="/" class="text-xl text-cyan-500">Ntubu</a>
+
+        <div class="space-x-4">
+            <a href="{% url 'main:about' %}" class="text-white">About</a>
+            <a href="{% url 'main:pricing' %}" class="text-white">Pricing</a>
+            <a href="{% url 'accounts:signup' %}" class="py-4 px-6 bg-cyan-600 text-white rounded-xl">Sign Up</a>
+            <a href="#" class="py-4 px-6 bg-cyan-600 text-white rounded-xl">Log in</a>
+        </div>
+    </nav>
+
+    <main class="p-6">
+        {% block content %}
+
+        {% endblock %}
+    </main>
+
+    <footer class="p-6 bg-gray-900">
+        <P class="text-xs text-gray-400">Copyright (c) 2023 - Ntubu</P>
+    </footer>
+
+</body>
+</html>

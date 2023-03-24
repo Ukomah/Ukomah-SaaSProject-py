@@ -1,0 +1,18 @@
+Create a virtual environment - pipenv
+Install Django
+Create Django Projects
+Create app for base pages
+Create some templates, views
+Implement tailwind css
+Create app for users
+Set up Authentication
+    Sign up
+    Log in
+    Log out
+Create app for links
+    Models for links and category
+    Views
+Create app for dashboard
+Implement limitations
+Implement a payment gateway (dj-stripe)
+Deploy
