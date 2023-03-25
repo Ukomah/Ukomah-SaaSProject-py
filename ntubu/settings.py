@@ -31,8 +31,11 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+
 # Used to override django's default User account
 AUTH_USER_MODEL = 'accounts.User'
+
+LOGOUT_REDIRECT_URL = '/'
 
 # Application definition
 
@@ -45,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'main',
+    'link',
 ]
 
 MIDDLEWARE = [
