@@ -16,3 +16,7 @@ Create app for dashboard
 Implement limitations
 Implement a payment gateway (dj-stripe)
 Deploy
+
+
+adminPWNtubu1!
+NtubuEmployment1!

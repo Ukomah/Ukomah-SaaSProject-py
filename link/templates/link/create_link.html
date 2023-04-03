@@ -1,0 +1,39 @@
+
+{% extends 'main/base.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+    <h1 class="mb-6 text-xl">{{title}}</h1>
+
+    <!-- <form method="post" action=".">
+        {% csrf_token %}
+
+        {{ form.as_p}}
+        <button class="mt-4 py-4 px-6 bg-cyan-500 text-white rounded-xl">Submit</button>
+    </form> -->
+
+    <!-- {% if request.user.links.all.count >= request.user.plan.max_num_links %}
+        <div class="p-6 bg-rose-600 text-white rounded-xl">
+            You have reached the top of your plan, kindly subscription...
+        </div>
+    {% else %} -->
+
+        <form class="signup-form" method="post" action=".">
+        {% csrf_token %}
+
+       
+
+
+            {% for field in form %}
+            <label for="{{ field.auto_id }}">{{ field.label }}</label>
+            {{ field.errors }}
+            {{ field }}
+            {% endfor %}
+            <button class="mt-4 py-4 px-6 bg-cyan-500 text-white rounded-xl">Submit</button>
+        </form>
+    <!-- {% endif %}  -->
+
+
+
+{% endblock %}
