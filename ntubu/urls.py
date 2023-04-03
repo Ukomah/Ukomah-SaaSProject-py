@@ -17,7 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    path('links/', include('link.urls')),
     path('', include('main.urls')),
     path('', include('accounts.urls')),
+    path('dashboard/', include('dashboard.urls')),
     path('admin/', admin.site.urls),
+    path("stripe/", include("djstripe.urls", namespace="djstripe")),
 ]

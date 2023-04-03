@@ -1,0 +1,45 @@
+
+{% extends 'main/base.html' %}
+
+
+{% block title %} {{title}}{% endblock %}
+
+{% block content %}
+    {% load my_tags %}
+
+    <h1 class="mt-6 mb-6 text-xl">Links</h1>
+    <a href="{% url 'link:create_link' %}" class="py-4 px-6 bg-emerald-600 text-white rounded-xl">Create link</a>
+
+    <div class="mb-6 mt-6 space-x-4 space-y-4">
+        {% for category in request.user.categories.all %}
+
+            <a href="{% url 'link:links' %}?category={{category.id}}">{{ category.name}}</a>
+
+        {%endfor%}
+    </div>
+
+
+
+
+    <div class="grid grid-cols-3 gap-3">
+        {% for link in links %}
+            <div class="bg-gray-100 p-6 rounded-xl">
+                <h2 class="mb-4 text-xl">  {{ link.name}} </h2>
+
+                {% if link.description %}
+                    <p class=" mb-4 text-xs">{{ link.description}}</p>
+                {% endif %}
+
+                <a href="{{ link.url|add_protocol }}" class="text-cyan-700" target="_blank">Open link</a>
+                |
+                <a href="{% url 'link:edit_link' link.id %}" class="text-cyan-700">Edit</a>
+                |
+                <a href="{% url 'link:delete_link' link.id %}" class="text-cyan-700">Delete</a>
+            </div>
+        {% empty %}
+                <div class="bg-rose-200 p-6 rounded-xl"> You do not have a link for this filter...</div>
+            
+        {% endfor %}
+    </div>
+
+{% endblock %}

@@ -35,7 +35,19 @@ ALLOWED_HOSTS = []
 # Used to override django's default User account
 AUTH_USER_MODEL = 'accounts.User'
 
+LOGIN_URL = '/login'
+LOGOUT_REDIRECT_URL = '/dashboard'
 LOGOUT_REDIRECT_URL = '/'
+
+
+
+
+STRIPE_TEST_PUBLIC_KEY ='pk_test_51MsmoGH3X4TIA4BLadUr1YjA2IjlCA7BcRjzZpEZpoGVtk9ZopKOwzR4kbGpVkeOF2jn6kJsxZvzABUOPdu1E2gV000crCBGlA'
+STRIPE_TEST_SECRET_KEY = 'sk_test_51MsmoGH3X4TIA4BLxoEBbUAgG4nm273PhERGCaQeeaOpTcSY3zmvPM14llnn5xLUlpheMynIl6UvhY1xK6j6GlY300rID2CUxp'
+STRIPE_LIVE_MODE = False  # Change to True in production
+DJSTRIPE_WEBHOOK_SECRET = "whsec_xxx"
+DJSTRIPE_FOREIGN_KEY_TO_FIELD = "id"
+
 
 # Application definition
 
@@ -49,6 +61,9 @@ INSTALLED_APPS = [
     'accounts',
     'main',
     'link',
+    'dashboard',
+    'djstripe',
+    
 ]
 
 MIDDLEWARE = [
@@ -75,6 +90,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'libraries':{
+                'filter_tags': 'link.templatetags.my_tags',
+            }
         },
     },
 ]
@@ -134,3 +152,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
